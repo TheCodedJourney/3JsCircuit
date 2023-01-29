@@ -1,8 +1,8 @@
 {
-  "name": "car-physics",
+  "name": "3jscircuit",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "https://thecodedjourney.github.io/3JsCircuit/",
   "dependencies": {
     "@react-three/cannon": "6.4.0",
     "@react-three/drei": "9.34.4",
@@ -16,6 +16,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -36,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
