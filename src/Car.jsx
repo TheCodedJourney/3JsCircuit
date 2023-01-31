@@ -29,7 +29,7 @@ export function Car({ thirdPerson }) {
       mass: 150,
       position,
     }),
-    useRef(null),
+    useRef(null)
   );
 
   const [wheels, wheelInfos] = useWheels(width, height, front, wheelRadius);
@@ -40,26 +40,28 @@ export function Car({ thirdPerson }) {
       wheelInfos,
       wheels,
     }),
-    useRef(null),
+    useRef(null)
   );
 
   useControls(vehicleApi, chassisApi);
 
   useFrame((state) => {
-    if(!thirdPerson) return;
+    if (!thirdPerson) return;
 
-    let position = new Vector3(0,0,0);
+    let position = new Vector3(0, 0, 0);
     position.setFromMatrixPosition(chassisBody.current.matrixWorld);
 
     let quaternion = new Quaternion(0, 0, 0, 0);
     quaternion.setFromRotationMatrix(chassisBody.current.matrixWorld);
 
-    let wDir = new Vector3(0,0,1);
+    let wDir = new Vector3(0, 0, 1);
     wDir.applyQuaternion(quaternion);
     wDir.normalize();
 
-    let cameraPosition = position.clone().add(wDir.clone().multiplyScalar(1).add(new Vector3(0, 0.3, 0)));
-    
+    let cameraPosition = position
+      .clone()
+      .add(wDir.clone().multiplyScalar(1).add(new Vector3(0, 0.3, 0)));
+
     wDir.add(new Vector3(0, 0.2, 0));
     state.camera.position.copy(cameraPosition);
     state.camera.lookAt(position);
@@ -77,9 +79,13 @@ export function Car({ thirdPerson }) {
   return (
     <group ref={vehicle} name="vehicle">
       <group ref={chassisBody} name="chassisBody">
-        <primitive object={result} rotation-y={Math.PI} position={[0, -0.09, 0]}/>
+        <primitive
+          object={result}
+          rotation-y={Math.PI}
+          position={[0, -0.09, 0]}
+        />
       </group>
-      
+
       {/* <mesh ref={chassisBody}>
         <meshBasicMaterial transparent={true} opacity={0.3} />
         <boxGeometry args={chassisBodyArgs} />
