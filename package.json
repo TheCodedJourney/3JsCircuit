@@ -2,7 +2,7 @@
   "name": "3jscircuit",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://thecodedjourney.github.io/3JsCircuit/",
+  "homepage": "https://thecodedjourney.github.io/",
   "dependencies": {
     "@react-three/cannon": "6.4.0",
     "@react-three/drei": "9.34.4",
